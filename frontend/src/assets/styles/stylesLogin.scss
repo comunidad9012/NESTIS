@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*Primary colors*/
+$primary-color-green:#47bb94;
+$primary-color-grey:#cbc7bb;
+$primary-color-red:#f55863;
+$primary-color-dark-grey:#363d43;
+
+/*EStilos similares (Herencia), uso de Placeholders (%) y Extensión (@extend)*/
+%flex-center {
+    display: flex;
+    flex-direction: column;
+  }
+/*Media query con mixin*/
+@mixin respond-to($breakpoint){
+    @if $breakpoint == mobile {
+        @media (max-width: 768px){ @content; }
+    } @else if $breakpoint == tablet {
+        @media (max-width: 1024px) { @content; }
+    }
+}
+/*Section Login form*/
+.login-container{
+    width: 1000px;
+    font-family: "Poppins", sans-serif;
+    min-width: 318px;
+    height: auto;
+    padding: 20px;
+    position: absolute; 
+    top: 40%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    @include respond-to(mobile){
+        width: 320px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-size: 2vw
+    }
+    .allformcontent{
+        @extend %flex-center;
+        gap: 40px;
+        width: 50%;
+        height: auto;
+        @include respond-to(mobile){
+            width: 100%;
+        }
+    }
+    .section_welcome{
+        text-align: left;
+        @include respond-to(mobile){
+            text-align: center
+        }
+        a{
+            color: $primary-color-green
+        }
+        .welcome_title{
+            font-weight: 700;
+            font-style: normal;
+            font-size: 35px
+        }
+        .no_session{
+            font-weight: 700;
+            font-style: normal;
+            font-size: 15px
+        }
+        
+    }
+    .login_form{
+        @extend %flex-center;
+        width: 100%;
+        gap: 40px;
+        .inputs_container{
+            @extend %flex-center;
+            gap: 20px;
+            .input_form{
+                @extend %flex-center;
+                label{
+                    font-weight: 700;
+                    font-style: normal;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+                input{
+                    background-color: #ffff;
+                    height: 60px;
+                    border-radius: 30px;
+                    padding-left: 10px;
+                    color: #000;
+                    border: none;
+                }
+                input[type="email"]{
+                    width: 100%;
+                    
+                }
+                input[type="password"] {
+                    width: 50%;
+                    
+                }
+                .for_toggle{
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+                .toggle_password{
+                    position: absolute;
+                    cursor: pointer;
+                    user-select: none;
+                    right: 30px;
+                    font-size: 20px;
+
+                }
+            }
+
+        }
+        .button_signin {
+            min-width: 110px;
+            height: 50px;
+            color: #fff;
+            padding: 5px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            outline: none;
+            border-radius: 30px;
+            z-index: 0;
+            background: #fff;
+            overflow: hidden;
+            border: 2px solid $primary-color-green;
+            color: $primary-color-green;
+          }
+          .button_signin:hover {
+            color: #fff;
+          }
+          .button_signin:hover:after {
+            height: 100%;
+          }
+          .button_signin:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            transition: all 0.3s ease;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            background: $primary-color-green;
+          }
+
+    }
+    .other_session{
+        @extend %flex-center;
+        justify-content: center;
+        align-items: center;
+
+        .links_for_session{
+            margin-top: 30px;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-around;
+            .link_icon_cont{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: 2px solid #fff;
+                display: flex;
+                padding: 10px;
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    filter: invert(93%) sepia(93%) saturate(0%) hue-rotate(292deg) brightness(107%) contrast(106%);
+                    transition: 300ms ease-in-out;
+                }
+                img:hover{
+                    filter: invert(65%) sepia(59%) saturate(373%) hue-rotate(109deg) brightness(87%) contrast(92%);
+                }
+            }
+
+        }
+    }
+    //contenedor de imagen
+    .image_container_login{
+        width: 50%;
+        @include respond-to(mobile){
+            display: none;
+        }
+        .image_circle{
+            background-color: $primary-color-green;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            
+        }
+    }
+
+    
+
+}
