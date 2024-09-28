@@ -1,11 +1,8 @@
 //Estilos personalizados para login
-//Variables
-$primary-color-green:#47bb94;
-$primary-color-grey:#cbc7bb;
-$primary-color-red:#f55863;
-$primary-color-dark-grey:#363d43;
-//EStilos comunes
+//Variables de colores importadas
+@use './global_style.scss' as colors;
 
+//EStilos comunes
 %flex-center {
     display: flex;
     flex-direction: column;
@@ -122,8 +119,8 @@ $primary-color-dark-grey:#363d43;
         z-index: 0;
         background: #fff;
         overflow: hidden;
-        border: 2px solid $primary-color-green;
-        color: $primary-color-green;
+        border: 2px solid colors.$primary-color-green;
+        color: colors.$primary-color-green;
       }
       .button_signin:hover {
         color: #fff;
@@ -140,7 +137,7 @@ $primary-color-dark-grey:#363d43;
         bottom: 0;
         height: 0;
         width: 100%;
-        background: $primary-color-green;
+        background: colors.$primary-color-green;
       }
       .other_session{
         @extend %flex-center;
@@ -186,7 +183,7 @@ $primary-color-dark-grey:#363d43;
       }
       
       .image_circle {
-        background-color: $primary-color-green;
+        background-color: colors.$primary-color-green;
         width: 500px;
         min-width: 200px;
         height: 500px;
